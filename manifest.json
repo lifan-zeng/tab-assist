@@ -1,0 +1,15 @@
+{
+    "name": "TabAssist",
+    "version": "1.0",
+    "description":"Allows you to merge the tabs of chrome windows.",
+    "manifest_version": 2,
+    "permissions":[
+        "tabs",
+        "storage",
+        "sessions"
+    ],
+    "browser_action": {
+        "default_title": "TabAssist",
+        "default_popup": "popup.html"
+    }
+}
