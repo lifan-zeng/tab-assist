@@ -4,9 +4,7 @@ export default function startup() {
 }
 
 function generateTabs(callback) {
-    // this.allWindows = []
     chrome.windows.getAll({ populate: true }, (windowsList) => {
-        // this.pushTabs(windowsList);
         displayTabs();
         layoutWindows();
         if (callback) callback();
@@ -15,8 +13,7 @@ function generateTabs(callback) {
 
 function displayTabs() {
     // console.log('displayTabs')
-    let body = document.getElementsByTagName('body')[0],
-        masterWindows = document.getElementsByClassName('master-window-container')[0];
+    let masterWindows = document.getElementsByClassName('master-window-container')[0];
 
     // clear window containers
     while (masterWindows.firstChild) {
@@ -87,16 +84,15 @@ function initActionbar() {
         newWin = document.getElementById('abNewWin');
 
     close.addEventListener('click', (ev) => {
-        this.highlighted = Array.from(document.getElementsByClassName('highlight'));
+        let highlighted = Array.from(document.getElementsByClassName('highlight'));
         let highlightedIds = [];
-        this.highlighted.forEach((element) => {
+        highlighted.forEach((element) => {
             highlightedIds.push(parseInt(element.id));
         });
         chrome.tabs.remove(highlightedIds, () => {
             generateTabs();
         });
     });
-
     close.addEventListener('drop', (ev) => buttonDropHandler(ev));
     close.addEventListener('dragover', (ev) => {
         ev.preventDefault();
@@ -114,7 +110,6 @@ function initActionbar() {
             generateTabs();
         });
     });
-
 }
 
 function layoutWindows() {
@@ -123,7 +118,6 @@ function layoutWindows() {
             let masterWindows = document.getElementsByClassName('master-window-container')[0];
             masterWindows.style.width = "612px"
             // document.body.style.width = "800px";
-            // let winElements = Array.from(document.getElementsByClassName('window-container'));
             requirejs([
                 'scripts/masonry.pkgd.js',
             ], function (Masonry) {
