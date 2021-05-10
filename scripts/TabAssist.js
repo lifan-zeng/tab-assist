@@ -1,8 +1,4 @@
-// import Window from "./Window.js";
-// import Tab from "./Tab.js";
-
-
-export function startup() {
+export default function startup() {
     generateTabs();
     initActionbar();
 }
@@ -16,31 +12,6 @@ function generateTabs(callback) {
         if (callback) callback();
     });
 }
-
-// function pushTabs(windowsList) {
-//     for (let i = 0; i < windowsList.length; i++) {
-//         let newTabs = [],
-//             window = windowsList[i],
-//             tabs = window.tabs;
-//         for (let j = 0; j < tabs.length; j++) {
-//             let tab = tabs[j];
-//             let newTab = new Tab(
-//                 tab.windowId,
-//                 tab.url,
-//                 tab.id,
-//                 tab.index,
-//                 tab.title,
-//                 tab.active,
-//                 tab.selected,
-//                 tab.favIconUrl,
-//             );
-//             newTabs.push(newTab);
-//         }
-//         let newWindow = new Window(window.id, i, newTabs)
-//         this.allWindows.push(newWindow);
-//     }
-//     // console.log('pushTabs done');
-// }
 
 function displayTabs() {
     // console.log('displayTabs')
@@ -188,16 +159,16 @@ function addTabElementProperties(tab) {
 
 // creates drag image of highlighted tabs
 function createDragImg() {
-    this.highlighted = Array.from(document.getElementsByClassName('highlight'));
-    this.dragImage = document.createElement('div');
-    this.dragImage.className = 'drag-image';
-    this.highlighted.forEach((element) => {
+    let highlighted = Array.from(document.getElementsByClassName('highlight'));
+    let dragImage = document.createElement('div');
+    dragImage.className = 'drag-image';
+    highlighted.forEach((element) => {
         let tempTab = element.cloneNode(true);
         tempTab.classList.remove('highlight');
-        this.dragImage.appendChild(tempTab);
+        dragImage.appendChild(tempTab);
     });
     Array.from(document.getElementsByClassName('drag-image')).forEach(e => e.remove());
-    document.body.append(this.dragImage);
+    document.body.append(dragImage);
 }
 
 function dragstartHandler(ev) {
@@ -206,13 +177,13 @@ function dragstartHandler(ev) {
         data = JSON.stringify([parseInt(ev.target.id)]);
     } else {
         let tmpData = [];
-        this.highlighted.forEach((element) => {
+        Array.from(document.getElementsByClassName('highlight')).forEach((element) => {
             tmpData.push(parseInt(element.id));
         });
         data = JSON.stringify(tmpData);
 
-        console.log(this.dragImage);
-        ev.dataTransfer.setDragImage(this.dragImage, -10, -10);
+        // console.log(this.dragImage);
+        ev.dataTransfer.setDragImage(document.getElementsByClassName('drag-image')[0], -10, -10);
     }
     ev.dataTransfer.setData('text/plain', data);
     ev.dataTransfer.effectAllowed = 'move';
