@@ -175,8 +175,6 @@ function dragstartHandler(ev) {
             tmpData.push(parseInt(element.id));
         });
         data = JSON.stringify(tmpData);
-
-        // console.log(this.dragImage);
         ev.dataTransfer.setDragImage(document.getElementsByClassName('drag-image')[0], -10, -10);
     }
     ev.dataTransfer.setData('text/plain', data);
