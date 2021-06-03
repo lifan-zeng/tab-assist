@@ -29,11 +29,14 @@ function displayTabs() {
 
                 // create window heading
                 let heading = document.createElement('div'),
-                    newTab = document.createElement('button');
+                    newTab = document.createElement('input');
 
                 // new tab button
                 newTab.className = 'new-tab';
-                newTab.innerHTML = '+';
+                newTab.type = 'image';
+                newTab.src = `data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjAiIGhlaWdodD0iMjAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTg2LDE0LjMzMzMzYy0zOS41MTY3NiwwIC03MS42NjY2NywzMi4xNDk5MyAtNzEuNjY2NjcsNzEuNjY2NjdjMCwzOS41MTY3MyAzMi4xNDk5LDcxLjY2NjY3IDcxLjY2NjY3LDcxLjY2NjY3YzM5LjUxNjc2LDAgNzEuNjY2NjcsLTMyLjE0OTkzIDcxLjY2NjY3LC03MS42NjY2N2MwLC0zOS41MTY3MyAtMzIuMTQ5OSwtNzEuNjY2NjcgLTcxLjY2NjY3LC03MS42NjY2N3pNODYsMjUuMDgzMzNjMzMuNzA3MDQsMCA2MC45MTY2NywyNy4yMDk2NSA2MC45MTY2Nyw2MC45MTY2N2MwLDMzLjcwNzAyIC0yNy4yMDk2Myw2MC45MTY2NyAtNjAuOTE2NjcsNjAuOTE2NjdjLTMzLjcwNzA0LDAgLTYwLjkxNjY3LC0yNy4yMDk2NSAtNjAuOTE2NjcsLTYwLjkxNjY3YzAsLTMzLjcwNzAyIDI3LjIwOTYzLC02MC45MTY2NyA2MC45MTY2NywtNjAuOTE2Njd6TTg1LjkxNjAxLDUwLjA4OTY4Yy0yLjk2NTc4LDAuMDQ2MzMgLTUuMzMzNTYsMi40ODYxNCAtNS4yOTEwMSw1LjQ1MTk4djI1LjA4MzMzaC0yNS4wODMzM2MtMS45Mzg0MiwtMC4wMjc0MSAtMy43NDE0NCwwLjk5MTAyIC00LjcxODY1LDIuNjY1MzJjLTAuOTc3MjEsMS42NzQzIC0wLjk3NzIxLDMuNzQ1MDcgMCw1LjQxOTM3YzAuOTc3MjEsMS42NzQzIDIuNzgwMjMsMi42OTI3MyA0LjcxODY1LDIuNjY1MzJoMjUuMDgzMzN2MjUuMDgzMzNjLTAuMDI3NDEsMS45Mzg0MiAwLjk5MTAyLDMuNzQxNDQgMi42NjUzMiw0LjcxODY1YzEuNjc0MywwLjk3NzIxIDMuNzQ1MDcsMC45NzcyMSA1LjQxOTM3LDBjMS42NzQzLC0wLjk3NzIxIDIuNjkyNzMsLTIuNzgwMjMgMi42NjUzMiwtNC43MTg2NXYtMjUuMDgzMzNoMjUuMDgzMzNjMS45Mzg0MiwwLjAyNzQxIDMuNzQxNDQsLTAuOTkxMDIgNC43MTg2NSwtMi42NjUzMmMwLjk3NzIxLC0xLjY3NDMgMC45NzcyMSwtMy43NDUwNyAwLC01LjQxOTM3Yy0wLjk3NzIxLC0xLjY3NDMgLTIuNzgwMjMsLTIuNjkyNzMgLTQuNzE4NjUsLTIuNjY1MzJoLTI1LjA4MzMzdi0yNS4wODMzM2MwLjAyMDg1LC0xLjQ1MzQ3IC0wLjU0NzgyLC0yLjg1MzQyIC0xLjU3NjM1LC0zLjg4MDYyYy0xLjAyODUyLC0xLjAyNzIgLTIuNDI5MiwtMS41OTQwOCAtMy44ODI2NCwtMS41NzEzNnoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==`;
+                newTab.width = '20'
+                newTab.height = '20'
                 newTab.title = 'New Tab';
                 newWindow.appendChild(newTab);
                 newTab.addEventListener('click', (ev) => {
@@ -81,7 +84,16 @@ function displayTabs() {
 
 function initActionbar() {
     let close = document.getElementById('abClose'),
-        newWin = document.getElementById('abNewWin');
+        newWin = document.getElementById('abNewWin'),
+        actionbar = document.getElementsByClassName('actionbar');
+
+    let isScrollBottom = document.scrollHeight - document.clientHeight <= document.scrollTop + 1;
+    console.log(isScrollBottom)
+    if (isScrollBottom) {
+        actionbar.classList.add('actionbar-no-shadow');
+    } else {
+        actionbar.className = ('actionbar-no-shadow');
+    }
 
     close.addEventListener('click', (ev) => {
         let highlighted = Array.from(document.getElementsByClassName('highlight'));

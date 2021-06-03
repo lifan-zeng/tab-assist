@@ -115,22 +115,28 @@ body {
 
 .new-tab {
     position: absolute;
-    top: 12px;
-    right: .25em;
+    top: 13px;
+    right: .5em;
+    object-fit:cover;
+
 }
 
 .actionbar {
     position: fixed;
     width: 100%;
     bottom: 0px;
-    text-align: center;
-    /* background-color: darkgray;
-    box-shadow: 0px -2px 1px 1px rgba(0, 0, 0, 0.2); */
+    /* text-align: center; */
+    background-color: #e0e0e0;
+    box-shadow: 0 0px 30px rgba(0,0,0,0.30), 0 0px 10px rgba(0,0,0,0.10);
+    /* display: inline; */
+}
 
+.actionbar-no-shadow {
+    box-shadow: none
 }
 
 .actionbar button {
-    display: inline-block;
+    display: flex;
 }
 
 @keyframes fade-out {
