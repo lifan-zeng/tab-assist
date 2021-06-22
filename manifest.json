@@ -3,6 +3,7 @@
     "version": "0.0.0.1",
     "description": "Allows you to easily manage the tabs of chrome windows.",
     "manifest_version": 3,
+    "options_page": "options.html",
     "permissions": [
         "tabs",
         "storage",
