@@ -84,16 +84,17 @@ function displayTabs() {
 
 function initActionbar() {
     let close = document.getElementById('abClose'),
-        newWin = document.getElementById('abNewWin'),
-        actionbar = document.getElementsByClassName('actionbar');
+        newWin = document.getElementById('abNewWin');
 
-    let isScrollBottom = document.scrollHeight - document.clientHeight <= document.scrollTop + 1;
-    console.log(isScrollBottom)
-    if (isScrollBottom) {
-        actionbar.classList.add('actionbar-no-shadow');
-    } else {
-        actionbar.className = ('actionbar-no-shadow');
-    }
+    document.addEventListener('scroll', (ev) => {
+        let actionbar = document.getElementsByClassName('actionbar')[0],
+            isScrollBottom = document.body.scrollHeight - Math.abs(window.scrollY) === window.innerHeight;
+        if (isScrollBottom) {
+            actionbar.classList.remove('actionbar-shadow');
+        } else {
+            actionbar.classList.add('actionbar-shadow');
+        }
+    });
 
     close.addEventListener('click', (ev) => {
         let highlighted = Array.from(document.getElementsByClassName('highlight'));
